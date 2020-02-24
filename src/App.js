@@ -16,19 +16,19 @@ export default class App extends React.Component {
 	render() {
 		return (
 			<div className="App" onClick={() => { redibase.set('mode', !this.state.checked) }}>
-				<input type="checkbox" class="side" id="side" checked={this.state.checked} />
-				<div class="onoff">
-					<span class="off">OFF</span>
-					<span class="on">ON</span>
+				<input type="checkbox" className="side" id="side" checked={this.state.checked} onChange={()=>{}} />
+				<div className="onoff">
+					<span className="off">OFF</span>
+					<span className="on">ON</span>
 				</div>
-				<label class="front" for="side"></label>
+				<label className="front" htmlFor="side"></label>
 
-				<div class="wall"></div>
-				<div class="switchplate">
-					<div class="screw top">&ndash;</div>
-					<div class="screw bottom">&ndash;</div>
+				<div className="wall"></div>
+				<div className="switchplate">
+					<div className="screw top">&ndash;</div>
+					<div className="screw bottom">&ndash;</div>
 				</div>
-				<div class="switch"></div>
+				<div className="switch"></div>
 			</div>
 		);
 	}
