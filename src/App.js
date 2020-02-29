@@ -1,13 +1,15 @@
 import React from 'react';
 import './App.css';
-import {redibase} from './redibase'
-
-
+import socketIOClient from 'socket.io-client'
+import axios from './axios'
 export default class App extends React.Component {
 	componentDidMount() {
-		redibase.on('mode', (old_value, new_value) => {
-			this.setState({checked: new_value})
+		const socket = socketIOClient('http://localhost:4411')
+        socket.on('mode', data => {
+			console.log(data); 
+			this.setState({ checked: data })
 		})
+	
 
 	}
 	state = {
@@ -15,7 +17,7 @@ export default class App extends React.Component {
 	}
 	render() {
 		return (
-			<div className="App" onClick={() => { redibase.set('mode', !this.state.checked) }}>
+			<div className="App" onClick={() => { axios.post('/mode', {mode: !this.state.checked}) }}>
 				<input type="checkbox" className="side" id="side" checked={this.state.checked} onChange={()=>{}} />
 				<div className="onoff">
 					<span className="off">OFF</span>
