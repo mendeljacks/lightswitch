@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL ='http://localhost:4411'
+export const API_URL ='https://redibase-lightserver.herokuapp.com/'
 
 var apiAxios = axios.create({ baseURL: API_URL })
 

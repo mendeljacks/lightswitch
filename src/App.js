@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import socketIOClient from 'socket.io-client'
-import axios from './axios'
+import axios, { API_URL } from './axios'
 export default class App extends React.Component {
 	componentDidMount() {
-		const socket = socketIOClient('http://localhost:4411')
+		const socket = socketIOClient(API_URL)
         socket.on('mode', data => {
 			console.log(data); 
 			this.setState({ checked: data })
